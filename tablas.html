@@ -1,0 +1,262 @@
+<!doctypehtml>
+<html>
+<head>
+<title> ingesoft|inventario</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	    <link href="tabla.css" rel="stylesheet" type="text/css" media="all" />
+	    <script src="js/jquery.min.js"></script>
+	    <!--Inicio slider -->
+	    <link rel="stylesheet" href="css/fwslider.css" media="all">
+	    <script src="js/jquery-ui.min.js"></script>
+	    <script src="js/css3-mediaqueries.js"></script>
+	    <script src="js/fwslider.js"></script>
+	    <!--Fin slider -->
+	    <!--Inicio BxSlider -->
+	    <link href="css/jquery.bxslider.css" rel="stylesheet">
+	     <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.lob.js"></script>
+	    <!--Fin BxSlider -->
+</head>
+<body>
+	<div class="header_bg">
+            <div class="wrap">
+            <!--Inicio Menu -->
+	            <div class="header">
+		            <div class="logo">
+			            <a href="index.html"><img src="images/logo.png" alt=""></a>
+		            </div>
+		            <div class="h_right">			            
+			            <ul class="menu">
+				            <li class="active border"><a href="index.html">Inicio</a></li>
+				            <li class="border"><a href="quienesSomos.html">Quienes Somos</a></li>
+				            <li class="border"><a href="proyectos.html">Proyectos</a></li>
+				            <li><a href="contacto.aspx">Contacto</a></li>				            
+			            </ul>
+                        <div class="clear"></div>
+		            </div>
+		            <div class="clear"></div>
+		            <div class="top-nav">
+		                <nav class="clearfix">
+				            <ul>
+			            		<li><a href="index.html">Inicio</a></li>
+					            <li><a href="quienesSomos.html">Quienes Somos</a></li>
+					            <li><a href="proyectos.html">Proyectos</a></li>
+					            <li><a href="contacto.aspx">Contacto</a></li>	
+				            </ul>
+				            <a href="#" id="pull">Menu</a>
+			            </nav>
+		            </div>
+	            </div>
+            <!--Fin Menu -->
+            </div>
+        </div>
+       <!--inicio combo box-->
+<div class="group-container overHidden">
+        <div class="overHidden">
+            <div class="comboGroup">
+                <div>Oficina</div>
+                <span id="combooficina"></span>
+            </div>
+            <div class="comboGroup">
+                <div>departamento</div>
+                <span id="combodepartamento"></span>
+            </div>
+            <div class="comboGroup">
+                <div>estacion</div>
+                <span id="comboestacion"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var dsoficina, dsCascestacion,dsCascdepartamento, 
+            dsoficinaCascading, dsdepartamentoof1Cascading, dsdepartamentoof2Cascading;
+
+        dsoficina = [
+			{ txtoficina: "oficina 1", valoficina: "of1" },
+			{ txtoficina: "oficina 2", valoficina: "of2" }
+        ];
+
+        dsCascdepartamento = [
+			{ keyoficina: "of1", txtdepartamento: "ingenieria", valdepartamento: "ing" },
+			{ keyoficina: "of1", txtdepartamento: "informatica", valdepartamento: "inf" },
+			{ keyoficina: "of1", txtdepartamento: "control de documentos", valdepartamento: "CD" },
+			{ keyoficina: "of1", txtdepartamento: "sala tecnica", valdepartamento: "ST" },
+			{ keyoficina: "of1", txtdepartamento: "proyectos", valdepartamento: "pro" },
+			{ keyoficina: "of1", txtdepartamento: "electricidad", valdepartamento: "elc" },
+			{ keyoficina: "of1", txtdepartamento: "civil", valdepartamento: "civ" },
+			{ keyoficina: "of2", txtdepartamento: "ingenieria", valdepartamento: "ing" },
+			{ keyoficina: "of2", txtdepartamento: "informatica", valdepartamento: "inf" },
+			{ keyoficina: "of2", txtdepartamento: "control de documentos", valdepartamento: "CD" },
+			{ keyoficina: "of2", txtdepartamento: "sala tecnica", valdepartamento: "ST" },
+			{ keyoficina: "of2", txtdepartamento: "proyectos", valdepartamento: "pro" },
+			{ keyoficina: "of2", txtdepartamento: "electricidad", valdepartamento: "elc" },
+			{ keyoficina: "of2", txtdepartamento: "civil", valdepartamento: "civ" },
+        ];
+
+        dsCascestacion = [
+			{ keydepartamento: "ing", textestacion: "estacion 7", valestacion: "estacion7" },
+			{ keydepartamento: "ing", textestacion: "estacion 8", valestacion: "estacion8" },
+			{ keydepartamento: "ing", textestacion: "estacion 9", valestacion: "estacion9" },
+			{ keydepartamento: "ing", textestacion: "estacion 10", valestacion: "estacion10" },
+			{ keydepartamento: "ing", textestacion: "estacion 11", valestacion: "estacion11" },
+			{ keydepartamento: "ing", textestacion: "estacion 12", valestacion: "estacion12" },
+            { keydepartamento: "ing", textestacion: "estacion 13", valestacion: "estacion13" },
+			{ keydepartamento: "ing", textestacion: "estacion 14", valestacion: "estacion14" },
+			{ keydepartamento: "ing", textestacion: "estacion 15", valestacion: "estacion15" },
+			{ keydepartamento: "ing", textestacion: "estacion 16", valestacion: "estacion16" },
+			{ keydepartamento: "ing", textestacion: "estacion 17", valestacion: "estacion17" },
+			{ keydepartamento: "ing", textestacion: "estacion 18", valestacion: "estacion18" },
+			{ keydepartamento: "inf", textestacion: "estacion 19", valestacion: "estacion19" },
+			{ keydepartamento: "inf", textestacion: "estacion 20", valestacion: "estacion20" },
+			{ keydepartamento: "inf", textestacion: "estacion 21", valestacion: "estacion21" },
+			{ keydepartamento: "CD", textestacion: "estacion 4", valestacion: "estacion4" },
+			{ keydepartamento: "CD", textestacion: "estacion 5", valestacion: "estacion5" },
+			{ keydepartamento: "CD", textestacion: "estacion 6", valestacion: "estacion 6" },
+			{ keydepartamento: "ST", textestacion: "estacion 1", valestacion: "estacion1" },
+			{ keydepartamento: "ST", textestacion: "estacion2", valestacion: "estacion2" },
+			{ keydepartamento: "ST", textestacion: "estacion1", valestacion: "estacion1" },
+        ];
+
+        $(function () {
+
+            $("#combooficina").igCombo({
+                textKey: "txtoficina",
+                valueKey: "valoficina",
+                dataSource: dsoficina,
+                selectionChanged: function (evt, ui) {
+                    var filteredCascdepartamento = [];
+                    if (ui.items && ui.items[0]) {
+                        var itemData = ui.items[0].data;
+                        if (itemData.valoficina == "of1") {
+                            $("#departamento").css("display", "block");
+                        }
+                       
+
+                        filteredCascdepartamento = dsCascdepartamento.filter(function (departamento) {
+                            return departamento.keyoficina == itemData.valoficina;
+                        });
+                    }
+
+                    var $combodepartamento = $("#combodepartamento");
+                    $combodepartamento.igCombo("deselectAll", {}, true);
+                    $combodepartamento.igCombo("option", "dataSource", filteredCascdepartamento);
+                    $combodepartamento.igCombo("dataBind");
+
+                    var disableChildCombo = filteredCascdepartamento.length == 0;
+                    $combodepartamento.igCombo("option", "disabled", disableChildCombo);
+                },
+                itemsRendered: function (evt, ui) {
+                    ui.owner.deselectAll();
+                }
+            });
+
+            $("#combodepartamento").igCombo({
+                valueKey: "valdepartamento",
+                textKey: "txtdepartamento",
+                dataSource: [],
+                disabled: true,
+                selectionChanged: function (evt, ui) {
+                    var filteredCascestacion = [];
+
+                    if (ui.items && ui.items[0]) {
+                        var itemData = ui.items[0].data;
+
+                        var filteredCascestacion = dsCascestacion.filter(function (estacion) {
+                            return estacion.keydepartamento == itemData.valdepartamento;
+                        });
+                    }
+
+                    var $comboestacion = $("#comboestacion");
+                    $comboestacion.igCombo("deselectAll");
+                    $comboestacion.igCombo("option", "dataSource", filteredCascestacion);
+                    $comboestacion.igCombo("dataBind");
+
+                    var disableChildCombo = filteredCascestacion.length == 0;
+                    $comboestacion.igCombo("option", "disabled", disableChildCombo);
+                }
+            });
+
+            $("#comboestacion").igCombo({
+                valueKey: "valestacion",
+                textKey: "textestacion",
+                disabled: true
+            });
+        });
+
+    </script>
+
+
+    <!--fin combo box-->
+    <!--inicio tabla-->
+    <html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+<body>
+<div class="table-title">
+<h3>Data Table</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">id equipo</th>
+<th class="text-left">marca</th>
+<th class="text-left">modelo</th>
+<th class="text-left">serial</th>
+<th class="text-left">descripcion</th>
+<th class="text-left">codigo activo</th>
+<th class="text-left">estado</th>
+<th class="text-left">tipo</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+<td class="text-left">monitor</td>
+<td class="text-left">genius</td>
+<td class="text-left">we0c9</td>
+<td class="text-left">1236548</td>
+<td class="text-left">monitor con altavoces integrado </td>
+<td class="text-left">inge-144</td>
+<td class="text-left">activo</td>
+<td class="text-left">equipo</td>
+</tr>
+<tr>
+<td class="text-left">February</td>
+<td class="text-left">$ 10,000.00</td>
+</tr>
+<tr>
+<td class="text-left">March</td>
+<td class="text-left">$ 85,000.00</td>
+</tr>
+<tr>
+<td class="text-left">April</td>
+<td class="text-left">$ 56,000.00</td>
+</tr>
+<tr>
+<td class="text-left">May</td>
+<td class="text-left">$ 98,000.00</td>
+</tr>
+</tbody>
+</table>
+ <!--fin tabla--> 
+
+  </body>
+</body>
+</html>
+         
