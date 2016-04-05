@@ -15,7 +15,10 @@
 	    <!--Fin slider -->
 	    <!--Inicio BxSlider -->
 	    <link href="css/jquery.bxslider.css" rel="stylesheet">
-	     <!-- Ignite UI Required Combined CSS Files -->
+
+	    <!--Fin BxSlider -->
+
+    <!-- Ignite UI Required Combined CSS Files -->
     <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
     <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
 
@@ -26,7 +29,7 @@
     <!-- Ignite UI Required Combined JavaScript Files -->
     <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.core.js"></script>
     <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.lob.js"></script>
-	    <!--Fin BxSlider -->
+
 </head>
 <body>
 	<div class="header_bg">
@@ -62,27 +65,56 @@
             </div>
         </div>
 
-
+<!--inicio formulario-->
 <form class="login">
 <fieldset>
     
-    <legend class="legend">Login</legend>
-    
-    <div class="input">
-        <input type="text" placeholder="usuario" />
-      <span><i class="fa fa-envelope-o"></i></span>
-    </div>
-    
-    <div class="input">
-        <input type="password" placeholder="Password" required />
-      <span><i class="fa fa-lock"></i></span>
-    </div>
-    <div class="col-md-3 col-sm-4">
-    <button type="submit" class="submit"><i class="fa fa-fw fa-chevron-circle-right">  <i class="fa fa-fw fa-chevron-circle-right"></i>  </button>
-    <div>
+    <legend class="legend">agregar</legend>
+    <br><br><br>
+
+    <div id="combocategoria">categoria</div>
+
+    <script>
+        $(function () {
+
+            var data = [
+                      { "ID":1, "Name": "John Smith", "Age": 45 },
+                      { "ID":2, "Name": "Mary Johnson", "Age": 32 },
+                      { "ID":3, "Name": "Bob Ferguson", "Age": 27 }
+                ];
+            
+            $("#combocategoria").igCombo({
+                dataSource: data, //JSON Array defined above         
+                valueKey: "ID",
+                textKey: "Name"
+            });
+        });
+    </script>
+    <br><br>
+
+    <div id="combomarca">marca</div>
+
+    <script>
+        $(function () {
+
+            var data = [
+                      { "ID":1, "Name": "John Smith", "Age": 45 },
+                      { "ID":2, "Name": "Mary Johnson", "Age": 32 },
+                      { "ID":3, "Name": "Bob Ferguson", "Age": 27 }
+                ];
+            
+            $("#combomarca").igCombo({
+                dataSource: data, //JSON Array defined above         
+                valueKey: "ID",
+                textKey: "Name"
+            });
+        });
+    </script>
+
     
   </fieldset>
 </form>
+<!--fin formulario-->
   </body>
 </body>
 </html>
