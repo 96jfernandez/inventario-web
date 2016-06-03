@@ -13,24 +13,51 @@
 	    <script src="js/css3-mediaqueries.js"></script>
 	    <script src="js/fwslider.js"></script>
 	    <!--Fin slider -->
-	    <!--Inicio BxSlider -->
-	    <link href="css/jquery.bxslider.css" rel="stylesheet">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
-	    <!--Fin BxSlider -->
-
-    <!-- Ignite UI Required Combined CSS Files -->
-    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
-    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
-
-    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-
-    <!-- Ignite UI Required Combined JavaScript Files -->
-    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.core.js"></script>
-    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.lob.js"></script>
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
 </head>
+<script language="JavaScript" type="text/javascript">
+function marca()
+{	
+	if (document.getElementById('checkmarca')== 0)
+		document.getElementById('textmarca').disabled = true;
+	else
+	    document.getElementById('textmarca').disabled = false;
+}
+
+function modelo()
+{	
+	if (document.getElementById('checkmodelo')== 0)
+		document.getElementById('textmodelo').disabled = true;
+	else
+	    document.getElementById('textmodelo').disabled = false;
+}
+</script>
 <body>
 	<div class="header_bg">
             <div class="wrap">
@@ -65,65 +92,110 @@
             </div>
         </div>
 
-<!--inicio formulario-->
-<form class="login">
-<fieldset>
+	<form method="post">
+			<h1 class="h1" style="margin-top:50px">Agregar un Equipo/Componente</h1>
+
+			<div class="form-group" style="margin-top: 2% ">
+                <label>categoria..</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">selecciona una categoria</option>
+                  <option>laptop</option>
+                  <option>teclado</option>
+                  <option>mouse</option>
+                  <option>monitor</option>
+                  <option>case</option>
+                  <option>tarjeta madre</option>
+                </select>
+              </div>
+
+
+              <div class="form-group">
+                <label>marca</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">selecciona una marca..</option>
+                  <option>acer</option>
+                  <option>hp</option>
+                  <option>genius</option>
+                  <option>intel</option>
+                  <option>sonyview</option>
+                  <option>logitech</option>
+                </select>
+              </div>
+
+           <div class="form-group">
+            	 <label>
+                    <input type="checkbox" id="checkmarca" onChange="return marca(checkmarca.value);"> Agregar nueva marca
+                  </label>
+                  <br>
+			<input type="text" class="form-control" id="textmarca" placeholder="Enter ..." disabled/ >
+
+
+                  
+            </div>
+            <div class="form-group">
+                <label>modelo</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">selecciona un modelo..</option>
+                  <option>hpg61</option>
+                  <option>hal1916wa</option>
+                  <option>dh61sa</option>
+                  <option>kb-s3000</option>
+                  <option>pl17wb</option>
+                  <option>kb-06xke</option>
+                </select>
+              </div>
+                <div class="form-group">
+            	 <label>
+                    <input type="checkbox" id="checkmodelo" onChange="return modelo(checkmodelo.value);">Agregar nuevo modelo
+                  </label>
+			<input type="text"  class="form-control" id="textmodelo" placeholder="enter ..." disabled/>
+
+                  
+            </div>
+            <div class="form-group"><p>serial     </p><input type="text" name="serial">
+            </div>
+            <div class="form-group"><p>descripción</p>
+            <input type="textarea">
+            </div>
+
+            <div class="form-group" style="width: 7%">
+                <label>codigo activo</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">IMET</option>
+                  <option>inge</option>
+                  <option>hjgk</option>
+                </select>
+                <input type="text" name="codigo">
+              </div>
+                <div class="form-group">
+                <label>estado</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">en uso</option>
+                  <option>reverva</option>
+                
+                </select>
+              </div>
+
+                <div class="form-group">
+                <label>tipo</label>
+                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">equipo</option>
+                  <option>componente</option>
+                  
+                </select>
+              </div>
+              <div class="form-group">
+              	fecha<input type="date" name="">
+              	</div>
+              <div class="form-group">costo:<br>
+              	bs<input type="radio" name="bs">
+              	USD<input type="radio" name="">
+              	<input type="text" name=""><br>
+              </div>
+
+    </form>
     
-    <legend class="legend">agregar</legend>
-    <br><br><br>
-
-    <div id="combocategoria">categoria</div>
-
-    <script>
-        $(function () {
-
-            var data = [
-                      { "ID":1, "Name": "John Smith", "Age": 45 },
-                      { "ID":2, "Name": "Mary Johnson", "Age": 32 },
-                      { "ID":3, "Name": "Bob Ferguson", "Age": 27 }
-                ];
-            
-            $("#combocategoria").igCombo({
-                dataSource: data, //JSON Array defined above         
-                valueKey: "ID",
-                textKey: "Name"
-            });
-        });
-    </script>
-    <br><br>
-
-    <div id="combomarca">marca</div>
-
-    <script>
-        $(function () {
-
-            var data = [
-                      { "ID":1, "Name": "John Smith", "Age": 45 },
-                      { "ID":2, "Name": "Mary Johnson", "Age": 32 },
-                      { "ID":3, "Name": "Bob Ferguson", "Age": 27 }
-                ];
-            
-            $("#combomarca").igCombo({
-                dataSource: data, //JSON Array defined above         
-                valueKey: "ID",
-                textKey: "Name"
-            });
-        });
-    </script>
-<br> <br>
-<input type="checkbox" name="agregar" value="agregar">agregar marca nueva
-    <input type="text" name="marcanueva" value="">
-
-   <br><br>
-    serial<br>
-    <input type="text" name="serial" value="">
-    <br><br>
-    descripcion<br>
-    <textarea name="descripcion" required=""></textarea> 
-  </fieldset>
-</form>
-<!--fin formulario-->
-  </body>
 </body>
+
 </html>
          
