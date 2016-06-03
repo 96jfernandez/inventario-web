@@ -1,0 +1,25 @@
+<script language="JavaScript" type="text/javascript">
+function comprobar()
+{	
+	if (document.getElementById('checkbox')== 0)
+		document.getElementById('button').disabled = true;
+	else
+	    document.getElementById('button').disabled = false;
+}
+</script>
+
+
+<form id="form1" name="form1" method="post" action="cuenta_nueva.php">
+  <table width="160">
+  <tr>
+  <td>
+    <input name="checkbox" type="checkbox" id="checkbox" onChange="return comprobar(checkbox.value);"/>
+    <label for="checkbox">Acepto la Condiciones</td>
+  </tr>
+  <tr>
+  <td>
+    <input type="button" value="aceptar" id="button" disabled />
+  </td>
+  </tr>
+  </table>
+</form> 
