@@ -1,0 +1,141 @@
+﻿<!doctypehtml>
+<html>
+<head>
+    <title> ingesoft|inventario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--tabla scripts-->
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-animate.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+    <script src="./proveedores.js"></script>
+
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="tablaproveedores.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.lob.js"></script>
+
+
+
+</head>
+<body>
+    <div class="header_bg">
+        <div class="wrap">
+            <!--Inicio Menu -->
+            <div class="header">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt=""></a>
+                </div>
+                <div class="h_right">
+                    <ul class="menu">
+                        <li class="active border"><a href="index.html">Inicio</a></li>
+                        <li class="border"><a href="quienesSomos.html">Quienes Somos</a></li>
+                        <li class="border"><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="contacto.aspx">Contacto</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="top-nav">
+                    <nav class="clearfix">
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="quienesSomos.html">Quienes Somos</a></li>
+                            <li><a href="proyectos.html">Proyectos</a></li>
+                            <li><a href="contacto.aspx">Contacto</a></li>
+                        </ul>
+                        <a href="#" id="pull">Menu</a>
+                    </nav>
+                </div>
+            </div>
+            <!--Fin Menu -->
+        </div>
+    </div>
+
+
+
+    <form method="post" class="col-md-12" style="margin-bottom: 50px">
+        
+            <div class="col-md-4 col-md-offset-4">
+                <h1 class="h1" style="margin-top:50px; margin-bottom: 5%">Proveedores</h1>
+            </div>
+
+
+        <!--inicio tabla-->
+            <div class="tabla-margen">
+                
+                   
+        <table>
+           
+            <thead>
+                <tr>
+                    <th style="width:20%; text-align:left;">nombre</th>
+                    <th style="width:20%; text-align:left;">direccion</th>
+                    <th style="width:20%; text-align:left;">RIf</th>
+                    <th style="width:20%; text-align:left;">Tlfno</th>
+                    <th style="width:20%; text-align:left;">Email</th>
+                    <th style="width:15%; padding:0;">Edit</th>
+                    <th style="width:15%; padding:0;">Delete</th>
+ 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="nombre">Doe, John</td>
+                    <td class="direccion">playitas</td>
+                    <td class="rif">j12563698</td>
+                    <td class="telefono">02617856932</td>
+                    <td class="email">doejohn@gmail.com</td>
+                    <td class="edit">edit</td>
+                    <td class="trash">delete</td>
+                </tr>
+                <tr>
+                    <td class="nombre">Doe, John</td>
+                    <td class="direccion">playitas</td>
+                    <td class="rif">j12563698</td>
+                    <td class="telefono">02617856932</td>
+                    <td class="email">doejohn@gmail.com</td>
+                    <td class="edit">edit</td>
+                    <td class="trash">delete</td>
+                </tr>
+                <tr>
+                    <td class="nombre">Doe, John</td>
+                    <td class="direccion">playitas</td>
+                    <td class="rif">j12563698</td>
+                    <td class="telefono">02617856932</td>
+                    <td class="email">doejohn@gmail.com</td>
+                    <td class="edit">Edit</td>
+                    <td class="trash">Delete</td>
+                </tr>
+                <tr >
+                    <th width="100%"> <input type="button" class="new-row" value="agregar" /> </th>
+                </tr>
+            </tbody>
+        </table>
+                
+        </div>
+
+<!--fin tabla-->
+    </form>
+ </body>
+</html>
