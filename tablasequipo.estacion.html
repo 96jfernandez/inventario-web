@@ -1,0 +1,277 @@
+﻿<!doctypehtml>
+<html>
+<head>
+<title> ingesoft|inventario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--tabla scripts-->
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-animate.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+    <script src="./equipo.estacion.js"></script>
+
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="tablaequipo.estacion.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.2/latest/js/infragistics.lob.js"></script>
+
+
+    
+</head>
+<body>
+	<div class="header_bg">
+            <div class="wrap">
+            <!--Inicio Menu -->
+	            <div class="header">
+		            <div class="logo">
+			            <a href="index.html"><img src="images/logo.png" alt=""></a>
+		            </div>
+		            <div class="h_right">			            
+			            <ul class="menu">
+				            <li class="active border"><a href="index.html">Inicio</a></li>
+				            <li class="border"><a href="quienesSomos.html">Quienes Somos</a></li>
+				            <li class="border"><a href="proyectos.html">Proyectos</a></li>
+				            <li><a href="contacto.aspx">Contacto</a></li>				            
+			            </ul>
+                        <div class="clear"></div>
+		            </div>
+		            <div class="clear"></div>
+		            <div class="top-nav">
+		                <nav class="clearfix">
+				            <ul>
+			            		<li><a href="index.html">Inicio</a></li>
+					            <li><a href="quienesSomos.html">Quienes Somos</a></li>
+					            <li><a href="proyectos.html">Proyectos</a></li>
+					            <li><a href="contacto.aspx">Contacto</a></li>	
+				            </ul>
+				            <a href="#" id="pull">Menu</a>
+			            </nav>
+		            </div>
+	            </div>
+            <!--Fin Menu -->
+            </div>
+        </div>
+
+    <form method="post" class="col-md-12" style="margin-bottom: 50px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="h1" style="margin-top:50px; margin-bottom: 3%">Equipos por Estacion</h1>
+            </div>
+
+        </div>
+        <!--inicio combo box-->
+        <div style="margin-top:50px; margin-bottom: 3%" class="group-container overHidden">
+            <div class="overHidden">
+                <div class="comboGroup">
+                    <div>Oficina</div>
+                    <span id="combooficina"></span>
+                </div>
+                <div class="comboGroup">
+                    <div>departamento</div>
+                    <span id="combodepartamento"></span>
+                </div>
+                <div class="comboGroup">
+                    <div>estacion</div>
+                    <span id="comboestacion"></span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            var dsoficina, dsCascestacion, dsCascdepartamento,
+                dsoficinaCascading, dsdepartamentoof1Cascading, dsdepartamentoof2Cascading;
+
+            dsoficina = [
+                { txtoficina: "oficina 1", valoficina: "of1" },
+                { txtoficina: "oficina 2", valoficina: "of2" }
+            ];
+
+            dsCascdepartamento = [
+                { keyoficina: "of1", txtdepartamento: "ingenieria", valdepartamento: "ing" },
+                { keyoficina: "of1", txtdepartamento: "informatica", valdepartamento: "inf" },
+                { keyoficina: "of1", txtdepartamento: "control de documentos", valdepartamento: "CD" },
+                { keyoficina: "of1", txtdepartamento: "sala tecnica", valdepartamento: "ST" },
+                { keyoficina: "of1", txtdepartamento: "proyectos", valdepartamento: "pro" },
+                { keyoficina: "of1", txtdepartamento: "electricidad", valdepartamento: "elc" },
+                { keyoficina: "of1", txtdepartamento: "civil", valdepartamento: "civ" },
+                { keyoficina: "of2", txtdepartamento: "ingenieria", valdepartamento: "ing" },
+                { keyoficina: "of2", txtdepartamento: "informatica", valdepartamento: "inf" },
+                { keyoficina: "of2", txtdepartamento: "control de documentos", valdepartamento: "CD" },
+                { keyoficina: "of2", txtdepartamento: "sala tecnica", valdepartamento: "ST" },
+                { keyoficina: "of2", txtdepartamento: "proyectos", valdepartamento: "pro" },
+                { keyoficina: "of2", txtdepartamento: "electricidad", valdepartamento: "elc" },
+                { keyoficina: "of2", txtdepartamento: "civil", valdepartamento: "civ" },
+            ];
+
+            dsCascestacion = [
+                { keydepartamento: "ing", textestacion: "estacion 7", valestacion: "estacion7" },
+                { keydepartamento: "ing", textestacion: "estacion 8", valestacion: "estacion8" },
+                { keydepartamento: "ing", textestacion: "estacion 9", valestacion: "estacion9" },
+                { keydepartamento: "ing", textestacion: "estacion 10", valestacion: "estacion10" },
+                { keydepartamento: "ing", textestacion: "estacion 11", valestacion: "estacion11" },
+                { keydepartamento: "ing", textestacion: "estacion 12", valestacion: "estacion12" },
+                { keydepartamento: "ing", textestacion: "estacion 13", valestacion: "estacion13" },
+                { keydepartamento: "ing", textestacion: "estacion 14", valestacion: "estacion14" },
+                { keydepartamento: "ing", textestacion: "estacion 15", valestacion: "estacion15" },
+                { keydepartamento: "ing", textestacion: "estacion 16", valestacion: "estacion16" },
+                { keydepartamento: "ing", textestacion: "estacion 17", valestacion: "estacion17" },
+                { keydepartamento: "ing", textestacion: "estacion 18", valestacion: "estacion18" },
+                { keydepartamento: "inf", textestacion: "estacion 19", valestacion: "estacion19" },
+                { keydepartamento: "inf", textestacion: "estacion 20", valestacion: "estacion20" },
+                { keydepartamento: "inf", textestacion: "estacion 21", valestacion: "estacion21" },
+                { keydepartamento: "CD", textestacion: "estacion 4", valestacion: "estacion4" },
+                { keydepartamento: "CD", textestacion: "estacion 5", valestacion: "estacion5" },
+                { keydepartamento: "CD", textestacion: "estacion 6", valestacion: "estacion 6" },
+                { keydepartamento: "ST", textestacion: "estacion 1", valestacion: "estacion1" },
+                { keydepartamento: "ST", textestacion: "estacion2", valestacion: "estacion2" },
+                { keydepartamento: "ST", textestacion: "estacion1", valestacion: "estacion1" },
+            ];
+
+            $(function () {
+
+                $("#combooficina").igCombo({
+                    textKey: "txtoficina",
+                    valueKey: "valoficina",
+                    dataSource: dsoficina,
+                    selectionChanged: function (evt, ui) {
+                        var filteredCascdepartamento = [];
+                        if (ui.items && ui.items[0]) {
+                            var itemData = ui.items[0].data;
+                            if (itemData.valoficina == "of1") {
+                                $("#departamento").css("display", "block");
+                            }
+
+
+                            filteredCascdepartamento = dsCascdepartamento.filter(function (departamento) {
+                                return departamento.keyoficina == itemData.valoficina;
+                            });
+                        }
+
+                        var $combodepartamento = $("#combodepartamento");
+                        $combodepartamento.igCombo("deselectAll", {}, true);
+                        $combodepartamento.igCombo("option", "dataSource", filteredCascdepartamento);
+                        $combodepartamento.igCombo("dataBind");
+
+                        var disableChildCombo = filteredCascdepartamento.length == 0;
+                        $combodepartamento.igCombo("option", "disabled", disableChildCombo);
+                    },
+                    itemsRendered: function (evt, ui) {
+                        ui.owner.deselectAll();
+                    }
+                });
+
+                $("#combodepartamento").igCombo({
+                    valueKey: "valdepartamento",
+                    textKey: "txtdepartamento",
+                    dataSource: [],
+                    disabled: true,
+                    selectionChanged: function (evt, ui) {
+                        var filteredCascestacion = [];
+
+                        if (ui.items && ui.items[0]) {
+                            var itemData = ui.items[0].data;
+
+                            var filteredCascestacion = dsCascestacion.filter(function (estacion) {
+                                return estacion.keydepartamento == itemData.valdepartamento;
+                            });
+                        }
+
+                        var $comboestacion = $("#comboestacion");
+                        $comboestacion.igCombo("deselectAll");
+                        $comboestacion.igCombo("option", "dataSource", filteredCascestacion);
+                        $comboestacion.igCombo("dataBind");
+
+                        var disableChildCombo = filteredCascestacion.length == 0;
+                        $comboestacion.igCombo("option", "disabled", disableChildCombo);
+                    }
+                });
+
+                $("#comboestacion").igCombo({
+                    valueKey: "valestacion",
+                    textKey: "textestacion",
+                    disabled: true
+                });
+            });
+
+        </script>
+
+
+        <!--fin combo box-->
+        <!--inicio tabla-->
+        <div class="tabla-margen">
+
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th style="width:20%; text-align:left;">categoria</th>
+                        <th style="width:20%; text-align:left;">marca</th>
+                        <th style="width:20%; text-align:left;">modelo</th>
+                        <th style="width:20%; text-align:left;">serial</th>
+                        <th style="width:20%; text-align:left;">descripcion</th>
+                        <th style="width:20%; text-align:left;">codigo-activo</th>
+                        <th style="width:20%; text-align:left;">estado</th>
+                        <th style="width:20%; text-align:left;">tipo</th>
+                        <th style="width:20%; text-align:left;">fecha</th>
+                        <th style="width:20%; text-align:left;">costo</th>
+                        <th style="width:20%; text-align:left;">proveedor</th>
+                        <th style="width:15%; padding:0;">Edit</th>
+                        <th style="width:15%; padding:0;">Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="categoria">laptop</td>
+                        <td class="marca">hpg61</td>
+                        <td class="modelo">cnf00764t4</td>
+                        <td class="serial">1522654597</td>
+                        <td class="descripcion"> prueba numero 1 </td>
+                        <td class="codigoactivo">inge-102</td>
+                        <td class="estado">en uso</td>
+                        <td class="tipo">equipo</td>
+                        <td class="fecha">05/06/16</td>
+                        <td class="costo">1000000000 bs</td>
+                        <td class="proveedor">dimex</td>
+                        <td class="edit">edit</td>
+                        <td class="trash">delete</td>
+                    </tr>
+                    
+                    <tr>
+                       <th width="100%"> <input type="button" class="new-row" value="agregar" /> </th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+                     
+      
+            <!--fin tabla-->
+        <br><br>
+            <!--inicio buttons-->
+        
+            </form>
+        </body>
+    </html>
